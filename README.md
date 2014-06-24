@@ -1,4 +1,4 @@
-JavascriptTodo
+Testing
 ==============
 
-a basic todo app built in plain old javascript
+testing github functionality with browswer based IDEs for on the go development
