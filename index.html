@@ -1,9 +1,41 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Testing</title>
-</head>
-<body>
-    <h1>This is a test</h1>
-</body>
+<html lang="en" ng-app="TaskManager">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>ngTask</title>
+        <meta name="description" content="Task manager build with angularJS">
+        <meta name="viewport" content="width=device-width">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,500' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="content" ng-controller="taskController">
+            <h1>Todo List</h1>
+            <form>
+                <div class="inputContainer">
+                    <input type="text" class="taskName" placeholder="What do you need to do?" ng-model="newTask">
+                </div>
+                <div class="inputContainer last">
+                    <input type="date" min="{{today}}" class="taskDate" ng-model="newTaskDate">
+                </div>
+                <div class="row">
+                    <button class="taskAdd" ng-click="addNew()">Add task</button>
+                    <button class="taskDelete" ng-click="deleteTask()">Delete Completed</button>
+                </div>
+            </form>
+            <ul  class="taskList">
+                <li class="taskItem" ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem"><input type="checkbox" class="taskCheckbox" ng-model="taskItem.complete" ng-change="save()">
+                    <span class="complete-{{taskItem.complete}}">{{taskItem.description}}</span>
+                    <strong class="taskDate complete-{{taskItem.complete}}">{{taskItem.date | date : 'mediumDate'}}</strong>
+                </li>
+            </ul><!-- taskList -->
+            </div><!-- content -->
+        </div><!-- container -->
+        
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+        <script src="app.js"></script>
+    </body>
 </html>
