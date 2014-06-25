@@ -17,7 +17,12 @@
                 <div class="inputContainer">
                     <input type="text" class="taskName" placeholder="What do you need to do?" ng-model="newTask">
                 </div>
-                <div class="inputContainer last">
+                <div class="inputContainer half last">
+                    <select class="taskCategory" ng-model="newTaskCategory" ng-options="obj.name for obj in categories">
+                        <option class="disabled" value="">Choose a category</option>
+                    </select>
+                </div>
+                <div class="inputContainer half last right">
                     <input type="date" min="{{today}}" class="taskDate" ng-model="newTaskDate">
                 </div>
                 <div class="row">
@@ -28,6 +33,7 @@
             <ul  class="taskList">
                 <li class="taskItem" ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem"><input type="checkbox" class="taskCheckbox" ng-model="taskItem.complete" ng-change="save()">
                     <span class="complete-{{taskItem.complete}}">{{taskItem.description}}</span>
+                    <span class="category-{{taskItem.category}}">{{taskItem.category}}</span>
                     <strong class="taskDate complete-{{taskItem.complete}}">{{taskItem.date | date : 'mediumDate'}}</strong>
                 </li>
             </ul><!-- taskList -->

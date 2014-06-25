@@ -46,6 +46,11 @@ input:-moz-placeholder {
     overflow: hidden;
 }
 
+.half {
+    width: 50%;
+    float: left;
+}
+
 .content {
     background: #fff;
 }
@@ -67,7 +72,11 @@ h1 {
     border-bottom: 1px solid #e5e5e5;
 }
 
-input[type="date"], input[type="text"] {
+.inputContainer.half.last.right {
+    border-left: 1px solid #efefef;
+}
+
+input[type="date"], input[type="text"], select {
     height: 100%;
     width: 100%;
     padding: 0 20px;
@@ -83,7 +92,7 @@ input[type="date"], input[type="text"] {
     letter-spacing: 0.5px;
 }
 
-input[type="date"]:focus, input[type="text"]:focus {
+input[type="date"]:focus, input[type="text"]:focus, select:focus {
     outline: none;
     background: #ecf0f1;
 }
@@ -218,5 +227,57 @@ button {
 
 .taskCheckbox:focus {
     outline: none;
+}
+
+/* custom select menu */
+.taskCategory {
+    -webkit-appearance: none;
+            appearance: none;
+}
+
+.taskCategory option {
+    background: #fff;
+    border: none;
+    outline: none;
+}
+
+[class*='category-'] {
+    display: inline-block;
+    font-size: 10px;
+    background: #444;
+    vertical-align: middle;
+    color: #fff;
+    padding: 10px;
+    width: 75px;
+    text-align: center;
+    border-radius: 2px;
+    float: right;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-right: 20px;
+}
+
+.category- {
+    background: transparent;
+}
+
+.category-Personal {
+    background: #2980b9;
+}
+
+.category-Work {
+    background: #8e44ad;
+}
+
+.category-School {
+    background: #f39c12;
+}
+
+.category-Cleaning {
+    background: #16a085;
+}
+
+.category-Other {
+    background: #d35400;
 }
 

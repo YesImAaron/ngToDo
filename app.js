@@ -11,22 +11,33 @@ app.controller('taskController', function($scope) {
     
     $scope.newTask = null;
     $scope.newTaskDate = null;
+    $scope.categories = [
+        {name: 'Personal'},
+        {name: 'Work'},
+        {name: 'School'},
+        {name: 'Cleaning'},
+        {name: 'Other'}
+    ];
+    $scope.newTaskCategory = $scope.categories;
     $scope.addNew = function () {
         if ($scope.newTaskDate == null || $scope.newTaskDate == '') {
             $scope.taskItem.push({
                 description: $scope.newTask,
-                date: "No specific deadline",
-                complete: false
+                date: "No deadline",
+                complete: false,
+                category: $scope.newTaskCategory.name
             }) 
         } else {
             $scope.taskItem.push({
                 description: $scope.newTask,
                 date: $scope.newTaskDate,
-                complete: false
+                complete: false,
+                category: $scope.newTaskCategory.name
             })
         };
         $scope.newTask = '';
         $scope.newTaskDate = '';
+        $scope.newTaskCategory = $scope.categories;
         localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));
     };
     $scope.deleteTask = function () {
