@@ -90,6 +90,12 @@ input[type="date"], input[type="text"], select {
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     letter-spacing: 0.5px;
+    -webkit-transition: background 0.3s;
+            transition: background 0.3s;
+}
+
+input[type="date"] {
+    cursor: pointer;
 }
 
 input[type="date"]:focus, input[type="text"]:focus, select:focus {
@@ -233,6 +239,7 @@ button {
 .taskCategory {
     -webkit-appearance: none;
             appearance: none;
+    cursor: pointer;
 }
 
 .taskCategory option {
