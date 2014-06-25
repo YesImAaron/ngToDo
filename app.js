@@ -12,11 +12,19 @@ app.controller('taskController', function($scope) {
     $scope.newTask = null;
     $scope.newTaskDate = null;
     $scope.addNew = function () {
-        $scope.taskItem.push({
-            description: $scope.newTask,
-            date: $scope.newTaskDate,
-            complete: false
-        });
+        if ($scope.newTaskDate == null || $scope.newTaskDate == '') {
+            $scope.taskItem.push({
+                description: $scope.newTask,
+                date: "No specific deadline",
+                complete: false
+            }) 
+        } else {
+            $scope.taskItem.push({
+                description: $scope.newTask,
+                date: $scope.newTaskDate,
+                complete: false
+            })
+        };
         $scope.newTask = '';
         $scope.newTaskDate = '';
         localStorage.setItem('taskItems', JSON.stringify($scope.taskItem));

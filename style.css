@@ -13,7 +13,7 @@ html {
 body {
     background: #b1f6cb;
     background-image: url(congruent_pentagon.png);
-    font-family: 'Open Sans' ,sans-serif;
+    font-family: 'Open Sans',sans-serif;
 }
 
 ::-webkit-input-placeholder {
@@ -76,45 +76,72 @@ input[type="date"], input[type="text"] {
     border: none;
     border-radius: none;
     font-size: 13px;
-    color: #444444;
+    color: #777;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 input[type="date"]:focus, input[type="text"]:focus {
     outline: none;
-    background: #ced4ff;
+    background: #ecf0f1;
+}
+
+::-webkit-input-placeholder {
+    font-weight: normal;
+    -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+}
+
+::-moz-input-placeholder {
+    font-weight: normal;
+    transition: all 0.3s;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: #95a5a6;
+    font-weight: bold;
+}
+
+input:focus::-moz-input-placeholder {
+    color: #95a5a6;
+    font-weight: bold;
 }
 
 button {
-    border-radius: 3px;
+    font-family: 'Open Sans', sans-serif;
     background: transparent;
     border: 1px solid;
+    border-radius: 2px;
     outline: none;
     height: 50px;
     width: 150px;
+    font-size: 1em;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
     -webkit-transition: all 0.3s;
             transition: all 0.3s;
 }
 
 .taskAdd {
-    color: #7993ff;
-    border-color: #7993ff;
+    background: #34495e;
+    border-color: #34495e;
 }
 
 .taskAdd:hover {
-    color: #fff;
-    background: #7993ff;
+    background: #2c3e50;
 }
 
 .taskDelete {
-    color: #ff7979;
-    border-color: #ff7979;
+    background: #e74c3c;
+    border-color: #e74c3c;
 }
 
 .taskDelete:hover {
-    color: #fff;
-    background: #ff7979;
+    background: #c0392b;
+    border-color: #c0392b;
 }
 
 .taskList {
@@ -125,6 +152,10 @@ button {
 .taskItem {
     border-top: 1px solid #e5e5e5;
     padding: 15px 0;
+    color: #777;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
 }
 
 .taskList .taskItem:nth-child(even) {
@@ -141,7 +172,12 @@ button {
 }
 
 .taskList .taskDate {
-    color: black;
+    color: #95a5a6;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    margin-left: 43px
 }
 
 /* custom checkboxes */
@@ -154,6 +190,7 @@ button {
     border-radius: 3px;
     display: inline-block;
     position: relative;
+    cursor: pointer;
     vertical-align: middle;
     -webkit-transition: all 0.3s;
             transition: all 0.3s;
